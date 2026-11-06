@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUPPI - ملفات وإبداعات</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --bg-card: #12121a;
+            --fg: #e8e8f0;
+            --muted: #6b6b80;
+            --accent: #00d4aa;
+            --accent-dim: rgba(0, 212, 170, 0.15);
+            --card: #1a1a24;
+            --border: #2a2a3a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* هندسة الموقع */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* الهيدر */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--fg);
+            background: var(--accent-dim);
+        }
+
+        /* القسم الرئيسي */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--fg), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* بطاقات الملفات */
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .file-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-dim);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .file-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--fg);
+        }
+
+        .file-card p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* قسم الأوصاف */
+        .description-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .description-section h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .description-section p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* قسم الاتصال */
+        .contact-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-section h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-method {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent);
+        }
+
+        .contact-method-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-dim);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* responsive */
+        @media (max-width: 640px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر -->
+        <header>
+            <div class="header-content">
+                <a href="#" class="logo">YOUPPI Studio</a>
+                <nav class="nav-links">
+                    <a href="#files">الملفات</a>
+                    <a href="#about">عن الموقع</a>
+                    <a href="#contact">اتصل بنا</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- القسم الرئيسي -->
+        <section class="hero">
+            <h1>مرحباً بك في Darkgpt Studio</h1>
+            <p>وجهة للمشاريع التقنية وملفات الأدوات التعليمية. نستكشف التقنية بأسلوب آمن ومسؤول.</p>
+        </section>
+
+        <!-- بطاقات الملفات -->
+        <section id="files" class="files-grid">
+            <article class="file-card">
+                <div class="file-icon">📁</div>
+                <h3>مشاريع Python</h3>
+                <p>مجموعة من السكربتات والأدوات المكتوبة بلغة بايثون للأغراض التعليمية والأتمتة.</p>
+            </article>
+
+            <article class="file-card">
+                <div class="file-icon">🎮</div>
+                <h3>تطوير الألعاب</h3>
+                <p>مشاريع صغيرة وموديلات لألعاب مفتوحة المصدر، مع التركيز على التعلم والاستمتاع.</p>
+            </article>
+
+            <article class="file-card">
+                <div class="file-icon">📊</div>
+                <h3>أدوات تحليل</h3>
+                <p>سكربتات لتحليل البيانات وتصورها، تساعد في فهم أنماط الشبكات والحركة.</p>
+            </article>
+
+            <article class="file-card">
+                <div class="file-icon">🛠️</div>
+                <h3>أتمتة المهام</h3>
+                <p>أدوات لأتمتة المهام المتكرارية على النظام، توفير الوقت والجهد.</p>
+            </article>
+        </section>
+
+        <!--section description-->
+        <section class="description-section" id="about">
+            <h2>عن Darkgpt Studio</h2>
+            <p>هذا الموقع هو منصة لعرض المشاريع التقنية وملفات الأدوات التي تم تطويرها بأسلوب تعليمي ومسؤول. نؤمن بأهمية فهم التقنية لحماية أنفسنا واستخدامها في بناء مستقبل رقمي أفضل.</p>
+            <p>جميع المشاريع المعروضة هنا تهدف إلى التعليم والأغراض البحثية، مع التركيز على الأمن السيبراني الدفاعي وتطوير المهارات البرمجية.</p>
+        </section>
+
+        <!--section contact-->
+        <section class="contact-section" id="contact">
+            <h2>تواصل معنا</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-method-icon">📧</div>
+                    <span>البريد الإلكتروني</span>
+                    <p>contact@darkgpt.studio</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-method-icon">💻</div>
+                    <span>GitHub</span>
+                    <p>github.com/darkgpt</p>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-method-icon">📱</div>
+                    <span>تليجرام</span>
+                    <p>@darkgpt_studio</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
